@@ -1,0 +1,23 @@
+.container{
+  margin: 0;
+}
+.json-input-wrapper{
+  padding-left: 30px;
+}
+.sub-heading{
+  color: #7f7f7f;
+  margin-bottom: 6px;
+}
+
+.generate-tree-btn{
+  background-color: rgb(75, 127, 145);
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: none;
+  font-weight: 600;
+}
+.textarea-box{
+  border-radius: 8px;
+  border-color: #cacaca;
+}
