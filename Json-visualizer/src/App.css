@@ -1,23 +1,45 @@
-.container{
+.container {
   margin: 0;
+
 }
-.json-input-wrapper{
+
+.sub-wrapper {
+  display: flex;
+   /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+
+.json-input-wrapper {
   padding-left: 30px;
+  padding-right:20px;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   background-color: rgb(222, 235, 235);
 }
-.sub-heading{
+
+.sub-heading {
   color: #7f7f7f;
   margin-bottom: 6px;
 }
 
-.generate-tree-btn{
+.generate-tree-btn {
   background-color: rgb(75, 127, 145);
   color: #fff;
   padding: 10px;
   border-radius: 8px;
   box-shadow: none;
   font-weight: 600;
+  margin-bottom:20px;
+  margin-top: 5px;
 }
-.textarea-box{
+
+.textarea-box {
   border-radius: 8px;
   border-color: #cacaca;
+}
+
+.node-tree-wrapper {
+  width: 100%;
+  height: auto;
+  margin-left: 10px;
+  border-radius: 8px;
+ 
 }
