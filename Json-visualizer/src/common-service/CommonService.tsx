@@ -4,8 +4,12 @@ export const nodeTree = (
     depth = 0,
     x = 50,
     parentId: string | null = null,
-    list: any = { nodes: [], edges: [] }
+    list: any = { nodes: [], edges: [] },
+    searchedNode: string = ''
 ) => {
+    console.log(key);
+    
+
     const id = Math.random().toString();
     let type: string;
     let color = '#ccc';
@@ -20,6 +24,9 @@ export const nodeTree = (
         type = 'primitive';
         color = 'orange';
     }
+    if (searchedNode && key.toLowerCase().includes(searchedNode.toLowerCase())) {
+        color = 'pink';
+    }
 
     const label = type === 'primitive' ? `${key}: ${value}` : key;
 
@@ -27,7 +34,7 @@ export const nodeTree = (
         id,
         data: { label },
         position: {
-            x: x*2,
+            x: x * 2,
             y: depth * 200,
         },
         style: {
@@ -54,7 +61,7 @@ export const nodeTree = (
 
         entries.forEach(([childKey, childVal], index) => {
             const offset = (index - (entries.length - 1) / 2) * 180;
-            nodeTree(childKey, childVal, depth + 1, x + offset, id, list);
+            nodeTree(childKey, childVal, depth + 1, x + offset, id, list, searchedNode);
         });
     }
 

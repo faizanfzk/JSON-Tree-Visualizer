@@ -43,3 +43,15 @@
   border-radius: 8px;
  
 }
+
+.search-btn{
+  padding: 4px;
+  background-color: blue;
+  border-radius: 8px;
+  color: white;
+  margin-left: 10px;
+}
+.searchbar{
+  padding: 4px;
+  border-radius: 8px;
+}
