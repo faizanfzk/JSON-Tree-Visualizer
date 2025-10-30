@@ -1,75 +1,51 @@
-# React + TypeScript + Vite
+🌳 JSON Tree Visualizer (React + React Flow)
+📖 Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+JSON Tree Visualizer is a React-based web tool that allows users to:
 
-Currently, two official plugins are available:
+Paste or type JSON data
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Validate and visualize it as an interactive tree using React Flow
 
-## React Compiler
+Switch between Light and Dark mode
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Zoom in/out to explore complex JSON structures
 
-Note: This will impact Vite dev & build performances.
+Use a search feature to highlight specific keys in the JSON tree
 
-## Expanding the ESLint configuration
+🚀 Features
+📝 JSON Input & Validation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Users can paste or type raw JSON data into a text box.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+When the “Generate Tree” button is clicked, the app validates the JSON structure.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+If the JSON is invalid, an error message is displayed in red.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🌳 JSON Tree Visualization
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Once valid JSON is provided, the data is visualized as a tree structure using React Flow.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Each key-value pair becomes a node in the tree.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The visualization supports panning, zooming, and dragging nodes.
+
+🌗 Dark / Light Mode
+
+A toggle switch allows users to seamlessly switch between dark mode and light mode.
+
+The entire interface, including text and background, updates instantly to match the selected theme.
+
+🔍 Search Functionality
+
+Users can search for specific keys in the JSON data.
+
+If a key is found, its corresponding node is highlighted in pink.
+
+If no match is found, the tree remains unchanged.
+
+🔎 Zoom Controls
+
+Built-in zoom in/out functionality provided by React Flow.
+
+Users can explore deeply nested structures easily.
