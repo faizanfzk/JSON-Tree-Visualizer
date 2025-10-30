@@ -12,6 +12,7 @@ function App() {
   const [jsonText, setJsonText] = useState('');
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
+  const [search,setSearch] = useState('')
 
   const handleChange = (e: any) => {
     const value = e.target.value;
@@ -19,11 +20,12 @@ function App() {
     setIsValidJson(true)
 
   }
+  
 
   const validateJson = () => {
     try {
-      const parsed = JSON.parse(jsonText)
-      const { nodes, edges } = nodeTree('root', parsed)
+      const parsed = JSON.parse(jsonText);
+      const { nodes, edges } = nodeTree('root', parsed, 0, 50, null, { nodes: [], edges: [] }, search)
       setIsValidJson(true)
       setNodes(nodes)
       setEdges(edges)
@@ -32,11 +34,17 @@ function App() {
     }
   }
 
+  const handleSearch = (e:any)=>{
+    const value = e.target.value;
+    setSearch(value)
+  }
+ 
   return (
     <div className='container'>
       <div className='sub-wrapper'>
         <div className='json-input-wrapper'>
           <h1>JSON Tree Visualizer</h1>
+          
           {
             (!isValidJson) && <p style={{ color: 'red', fontWeight: 500 }}>Invalid JSON</p>
           }
@@ -57,6 +65,14 @@ function App() {
 
         </div>
         <div className='node-tree-wrapper'>
+          <input type='search'
+          value={search}
+          className='searchbar'
+          onChange={handleSearch}
+          placeholder='search'/>
+          <button className='search-btn' disabled={!search} onClick={validateJson}>
+            Search
+          </button>
           <NodeTreeComponent nodes={nodes}
             edges={edges}
           />
