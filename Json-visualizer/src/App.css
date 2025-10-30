@@ -1,6 +1,12 @@
-.container {
+*{
   margin: 0;
+  padding: 0
 
+}
+
+.container.toggle{
+  background-color: black;
+  color: white;
 }
 
 .sub-wrapper {
@@ -14,9 +20,17 @@
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
    background-color: rgb(222, 235, 235);
 }
+.json-input-wrapper.toggle{
+  background-color: black;
+  color: white;
+}
 
 .sub-heading {
   color: #7f7f7f;
+  margin-bottom: 6px;
+}
+.sub-heading.toggle {
+  color: yellowgreen;
   margin-bottom: 6px;
 }
 
@@ -38,7 +52,7 @@
 
 .node-tree-wrapper {
   width: 100%;
-  height: auto;
+  
   margin-left: 10px;
   border-radius: 8px;
  
@@ -54,4 +68,21 @@
 .searchbar{
   padding: 4px;
   border-radius: 8px;
+}
+button:disabled{
+  background-color: #7f7f7f;
+  cursor:not-allowed
+}
+.search-toggle-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.react-flow__controls-button{
+  color: red !important;
+}
+.toggle-text{
+  color: #ffff;
 }
