@@ -7,9 +7,7 @@ export const nodeTree = (
     list: any = { nodes: [], edges: [] },
     searchedNode: string = ''
 ) => {
-    console.log(key);
     
-
     const id = Math.random().toString();
     let type: string;
     let color = '#ccc';
@@ -26,6 +24,7 @@ export const nodeTree = (
     }
     if (searchedNode && key.toLowerCase().includes(searchedNode.toLowerCase())) {
         color = 'pink';
+       
     }
 
     const label = type === 'primitive' ? `${key}: ${value}` : key;

@@ -41,6 +41,7 @@ function App() {
     setSearch(value)
   }
 
+
   return (
     <div className={`${!isToggle ? 'container' : 'container toggle'}`}>
       <div className={`${!isToggle ? 'sub-wrapper' : 'sub-wrapper toggle'}`}>
@@ -73,12 +74,12 @@ function App() {
                 value={search}
                 className='searchbar'
                 onChange={handleSearch}
-                placeholder='search' />
+                placeholder='Search Key' />
               <button className='search-btn' disabled={!search} onClick={validateJson}>
                 Search
               </button>
             </div>
-            <ToggleButton label='Dark/Light'
+            <ToggleButton label='Light/Dark'
               checked={isToggle}
               className={`${isToggle ? 'toggle-text' : ''}`}
               onChange={(e: any) => setIsToggle(e.target.checked)} />
