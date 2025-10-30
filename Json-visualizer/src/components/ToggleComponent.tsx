@@ -11,7 +11,6 @@ const ToggleButton = (props: ToggleButtonProps) => {
     const { label, checked, onChange,className } = props;
 
     const handleChange = (checked: any) => {
-        console.log(checked)
         if (onChange) {
             onChange(checked);
         }
