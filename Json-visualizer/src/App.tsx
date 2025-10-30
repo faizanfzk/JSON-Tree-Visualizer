@@ -4,6 +4,7 @@ import './App.css'
 import { placeholder } from './static-data/static-data';
 import NodeTreeComponent from './components/NodeTreeComponent';
 import { nodeTree } from './common-service/CommonService';
+import ToggleButton from './components/ToggleComponent';
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
   const [jsonText, setJsonText] = useState('');
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
-  const [search,setSearch] = useState('')
+  const [search, setSearch] = useState('');
+  const [isToggle, setIsToggle] = useState(false)
 
   const handleChange = (e: any) => {
     const value = e.target.value;
@@ -20,7 +22,7 @@ function App() {
     setIsValidJson(true)
 
   }
-  
+
 
   const validateJson = () => {
     try {
@@ -34,22 +36,22 @@ function App() {
     }
   }
 
-  const handleSearch = (e:any)=>{
+  const handleSearch = (e: any) => {
     const value = e.target.value;
     setSearch(value)
   }
- 
+
   return (
-    <div className='container'>
-      <div className='sub-wrapper'>
-        <div className='json-input-wrapper'>
+    <div className={`${!isToggle ? 'container' : 'container toggle'}`}>
+      <div className={`${!isToggle ? 'sub-wrapper' : 'sub-wrapper toggle'}`}>
+        <div className={`${!isToggle ? 'json-input-wrapper' : 'json-input-wrapper toggle'}`}>
           <h1>JSON Tree Visualizer</h1>
-          
+
           {
             (!isValidJson) && <p style={{ color: 'red', fontWeight: 500 }}>Invalid JSON</p>
           }
           <div>
-            <p className='sub-heading'>Paste or type your JSON data </p>
+            <p className={`${!isToggle ? 'sub-heading' : 'sub-heading toggle'}`}>Paste or type your JSON data </p>
             <textarea value={jsonText}
               className='textarea-box'
               rows={25}
@@ -59,20 +61,28 @@ function App() {
               onChange={handleChange}
             />
           </div>
-          <button className='generate-tree-btn'  onClick={validateJson}>
+          <button className='generate-tree-btn' disabled={!jsonText} onClick={validateJson}>
             Generate Tree
           </button>
 
         </div>
         <div className='node-tree-wrapper'>
-          <input type='search'
-          value={search}
-          className='searchbar'
-          onChange={handleSearch}
-          placeholder='search'/>
-          <button className='search-btn' disabled={!search} onClick={validateJson}>
-            Search
-          </button>
+          <div className='search-toggle-wrapper'>
+            <div>
+              <input type='search'
+                value={search}
+                className='searchbar'
+                onChange={handleSearch}
+                placeholder='search' />
+              <button className='search-btn' disabled={!search} onClick={validateJson}>
+                Search
+              </button>
+            </div>
+            <ToggleButton label='Dark/Light'
+              checked={isToggle}
+              className={`${isToggle ? 'toggle-text' : ''}`}
+              onChange={(e: any) => setIsToggle(e.target.checked)} />
+          </div>
           <NodeTreeComponent nodes={nodes}
             edges={edges}
           />
